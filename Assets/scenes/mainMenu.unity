@@ -542,7 +542,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!114 &838778281
 MonoBehaviour:
@@ -653,7 +653,12 @@ Prefab:
       propertyPath: dropdown
       value: 
       objectReference: {fileID: 1780131245}
-    m_RemovedComponents: []
+    - target: {fileID: 1439170730029116, guid: 787e4241b362ab043961593af62dadd7, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 23197058601824090, guid: 787e4241b362ab043961593af62dadd7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 787e4241b362ab043961593af62dadd7, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1207193100
@@ -1658,7 +1663,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &1865029030
 RectTransform:
