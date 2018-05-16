@@ -4,6 +4,7 @@ public class pickup : MonoBehaviour {
 
     GameObject backdrop;
     GameObject unhit;
+    public valueKeeper value;
 
     private void Start()
     {
@@ -25,14 +26,14 @@ public class pickup : MonoBehaviour {
             if (gameObject.layer == 8)
             {
                 if (unhit)
-                    scoreKeeper.targetScore += 200;
+                    value.targetScore += 200;
                 else
-                    scoreKeeper.targetScore += 100;
+                    value.targetScore += 100;
                 Destroy(gameObject);
             }
             if (gameObject.layer == 9)
             {
-                scoreKeeper.targetScore -= 50;
+                value.targetScore -= 50;
                 Destroy(gameObject);
                 Destroy(unhit);
             }

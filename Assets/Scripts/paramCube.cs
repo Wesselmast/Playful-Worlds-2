@@ -4,6 +4,7 @@ public class paramCube : MonoBehaviour
 {
     public float startScale, scaleMulti;
     public bool useBuffer = true;
+    public valueKeeper value;
 
     public GameObject sampleCubePrefab;
     GameObject[] sampleCube = new GameObject[8];
@@ -27,18 +28,18 @@ public class paramCube : MonoBehaviour
             for (int i = 0; i < 8; i++)
             {
                 //bovenste twee if statements checks tegen NaN errors etc
-                if (AudioVis.audioBand[i] > 0)
+                if (value.audioBand[i] > 0)
                 {
                     if (sampleCube[i] != null)
                     {
                         if (useBuffer)
                         {
-                            sampleCube[i].transform.localScale = new Vector3(transform.localScale.x, (AudioVis.audioBandBuffer[i] * scaleMulti) + startScale, transform.localScale.z);
+                            sampleCube[i].transform.localScale = new Vector3(transform.localScale.x, (value.audioBandBuffer[i] * scaleMulti) + startScale, transform.localScale.z);
                         }
                     //testing purposes voor geen buffer
                     if (!useBuffer)
                     {
-                        sampleCube[i].transform.localScale = new Vector3(transform.localScale.x, (AudioVis.audioBand[i] * scaleMulti) + startScale, transform.localScale.z);
+                        sampleCube[i].transform.localScale = new Vector3(transform.localScale.x, (value.audioBand[i] * scaleMulti) + startScale, transform.localScale.z);
                     }
                     }
                 }

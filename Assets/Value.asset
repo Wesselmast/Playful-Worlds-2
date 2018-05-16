@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104ff5270441a8b4ba4682601758f82c, type: 3}
+  m_Name: Value
+  m_EditorClassIdentifier: 
+  audioBand:
+  - 0.000037766844
+  - 0.0000000070513373
+  - 0.000000007684348
+  - 0.000000007668961
+  - 0.000000003827781
+  - 0.000000003428097
+  - 0.0000000031764178
+  - 0.00000004290762
+  audioBandBuffer:
+  - 0.000037778398
+  - 0.0000001866973
+  - 0.00000055324944
+  - 0.00000017496397
+  - 0.000000022577822
+  - 0.0000000042236286
+  - 0.0000000033626275
+  - 0.000000044504716
+  amplitude: 0.000004730323
+  amplitudeBuffer: 0.000004845997
+  amplitudeHighest: 8
+  dropColor: {r: 0, g: 0.33333334, b: 0, a: 1}
+  images:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  texts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  seenTut: 0
+  isPaused: 0
+  targetScore: 0
+  score: 0

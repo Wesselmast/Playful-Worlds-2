@@ -5,11 +5,7 @@ public class AudioVis : MonoBehaviour {
     float[] samples = new float[512];
     float[] freqBand; 
     float[] bandBuffer;
-    public static float[] audioBand;
-    public static float[] audioBandBuffer;
-    public static float amplitude, amplitudeBuffer;
-    public static float amplitudeHighest;
-
+    public valueKeeper value;
     float[] bufferDecrease;
     float[] freqBandHighest;
 
@@ -17,10 +13,8 @@ public class AudioVis : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
         freqBand = new float[8];
         bandBuffer = new float[8];
-        audioBand = new float[8];
-        audioBandBuffer = new float[8];
         bufferDecrease = new float[8];
-        freqBandHighest = new float[8];     
+        freqBandHighest = new float[8];
     }
     
 	void Update () {
@@ -39,8 +33,8 @@ public class AudioVis : MonoBehaviour {
             {
                 freqBandHighest[i] = freqBand[i];
             }
-            audioBand[i] = (freqBand[i] / freqBandHighest[i]);
-            audioBandBuffer[i] = (bandBuffer[i] / freqBandHighest[i]);
+            value.audioBand[i] = (freqBand[i] / freqBandHighest[i]);
+            value.audioBandBuffer[i] = (bandBuffer[i] / freqBandHighest[i]);
         }
     }
 
@@ -50,20 +44,20 @@ public class AudioVis : MonoBehaviour {
         float currentAmpBuffer = 0f;
         for (int i = 0; i < 8; i++)
         {
-            currentAmp += audioBand[i];
-            currentAmpBuffer += audioBandBuffer[i];
+            currentAmp += value.audioBand[i];
+            currentAmpBuffer += value.audioBandBuffer[i];
         }
-        if (currentAmp > amplitudeHighest)
+        if (currentAmp > value.amplitudeHighest)
         {
-            amplitudeHighest = currentAmp;
+            value.amplitudeHighest = currentAmp;
         }
-        amplitude = currentAmp / amplitudeHighest;
-        amplitudeBuffer = currentAmpBuffer / amplitudeHighest;
+        value.amplitude = currentAmp / value.amplitudeHighest;
+        value.amplitudeBuffer = currentAmpBuffer / value.amplitudeHighest;
     }
 
     void GetSpectrumAudioSource()
     {
-        audioSource.GetSpectrumData(samples, 0, FFTWindow.Blackman);
+        audioSource.GetSpectrumData(samples, 1, FFTWindow.Blackman);
     }
 
     void BandBuffer()

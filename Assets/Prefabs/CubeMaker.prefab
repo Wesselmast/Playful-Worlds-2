@@ -54,5 +54,6 @@ MonoBehaviour:
   startScale: 1
   scaleMulti: 10
   useBuffer: 1
+  value: {fileID: 11400000, guid: f4cab2e5acf5b7d4da4570dc4fc266d2, type: 2}
   sampleCubePrefab: {fileID: 1340407069788956, guid: 53241499560246d459aed75b38f1a0d7,
     type: 2}

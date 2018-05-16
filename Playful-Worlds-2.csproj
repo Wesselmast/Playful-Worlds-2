@@ -298,6 +298,7 @@
     <Compile Include="Assets\Scripts\scoreKeeper.cs" />
     <Compile Include="Assets\Scripts\screenFader.cs" />
     <Compile Include="Assets\Scripts\spawnerScript.cs" />
+    <Compile Include="Assets\Scripts\valueKeeper.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

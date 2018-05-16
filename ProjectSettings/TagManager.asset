@@ -9,6 +9,7 @@ TagManager:
   - pickup
   - Text
   - Bonus
+  - score
   layers:
   - Default
   - TransparentFX

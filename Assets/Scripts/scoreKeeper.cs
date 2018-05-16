@@ -4,8 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class scoreKeeper : MonoBehaviour {
 
-    public static float targetScore;
-    public static float score;
+    public valueKeeper value;
     public float lerpSpeed = 2.5f;
 
     Text textComp;
@@ -17,7 +16,7 @@ public class scoreKeeper : MonoBehaviour {
     }
 
 	void FixedUpdate () {
-        score = Mathf.Lerp(score, targetScore, Time.deltaTime * lerpSpeed);
-        textComp.text = (Mathf.RoundToInt(score)).ToString();
+        value.score = Mathf.Lerp(value.score, value.targetScore, Time.deltaTime * lerpSpeed);
+        textComp.text = (Mathf.RoundToInt(value.score)).ToString();
         }
 }

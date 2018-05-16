@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class button : MonoBehaviour {
+    public valueKeeper value;
     public Button tutorial;
     public Button play;
     public Button exit;
@@ -11,14 +12,10 @@ public class button : MonoBehaviour {
     public Button mainMenu;
     public Material otherColor;
     public Image dropdown;
-    public static Color dropColor;
-    public static Image[] images;
-    public static Text[] texts;
-    public static bool seenTut;
 
     void Start () {
-        images = FindObjectsOfType<Image>();
-        texts = FindObjectsOfType<Text>();
+        value.images = FindObjectsOfType<Image>();
+        value.texts = FindObjectsOfType<Text>();
         if (play != null)
         {
             play.onClick.AddListener(Play);
@@ -37,21 +34,21 @@ public class button : MonoBehaviour {
 
     private void Update()
     {
-        if (seenTut && play != null)
+        if (value.seenTut && play != null)
             play.interactable = true;
 
         if (dropdown != null)
-            dropColor = dropdown.color;
-        foreach (Image img in images)
+            value.dropColor = dropdown.color; ;
+        foreach (Image img in value.images)
         {
             if (img.transform.name != "Image")
-              img.color = dropColor;
+              img.color = value.dropColor;
         }
-        foreach(Text text in texts)
+        foreach(Text text in value.texts)
         {
             if(text != null)    
                 if (text.transform.name != "Text" && text.transform.name != "Label")
-                    text.color = dropColor;
+                    text.color = value.dropColor;
         }
     }
 
@@ -78,9 +75,9 @@ public class button : MonoBehaviour {
     void Tutorial()
     {
         SceneManager.LoadScene("tutorial");
-        seenTut = true;
-
+        value.seenTut = true;
     }
+
     void MainMenu()
     {
         SceneManager.LoadScene("mainMenu");

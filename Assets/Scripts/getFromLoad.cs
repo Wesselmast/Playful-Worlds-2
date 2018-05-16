@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class getFromLoad : MonoBehaviour {
     public GameObject replay;
     public Text finalScore;
+    public valueKeeper value;
 
     string finalscore;
     AudioSource TheMusic;
@@ -22,13 +23,15 @@ public class getFromLoad : MonoBehaviour {
         TheMusic.Play();
         replayBtn.onClick.AddListener(Replay);
 
-        finalscore = GameObject.Find("score").GetComponent<Text>().text;
+        finalscore = GameObject.FindGameObjectWithTag("score").GetComponent<Text>().text;
         finalScore.text = "final score: " + finalscore;
     }
 	
 	void Replay ()
     {
         TheMusic.Stop();
-        scoreKeeper.score = 0;
+        value.score = 0;
+        value.targetScore = 0;
+        SceneManager.LoadScene("mainMenu");
     }
 }

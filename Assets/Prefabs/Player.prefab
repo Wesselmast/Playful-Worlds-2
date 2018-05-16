@@ -309,6 +309,7 @@ MonoBehaviour:
   unhit: {fileID: 1303158629735230, guid: d96a7e80e0971274fa69c9d45e79a9bb, type: 2}
   black: {fileID: 2100000, guid: f61f4ed816674ce40a97e6e0ea725e99, type: 2}
   otherColor: {fileID: 2100000, guid: 1c0ebe43d6711794281663d7a938ad22, type: 2}
+  value: {fileID: 11400000, guid: f4cab2e5acf5b7d4da4570dc4fc266d2, type: 2}
 --- !u!114 &114541539252667340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -323,7 +324,7 @@ MonoBehaviour:
   objects:
   - {fileID: 1860549826747878, guid: dc9c3c5cb10514c408252420767ca1b6, type: 2}
   - {fileID: 1409570187267654, guid: 0c2d8d2624d0bb245acc645d74e6ba3f, type: 2}
-  current: 1
+  value: {fileID: 0}
 --- !u!124 &124356662278176182
 Behaviour:
   m_ObjectHideFlags: 1

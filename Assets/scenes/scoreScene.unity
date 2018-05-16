@@ -229,11 +229,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1371114dee77f034daa2f2ee264de226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  value: {fileID: 11400000, guid: f4cab2e5acf5b7d4da4570dc4fc266d2, type: 2}
   tutorial: {fileID: 0}
   play: {fileID: 0}
   exit: {fileID: 1967802111}
   choose: {fileID: 0}
-  mainMenu: {fileID: 780475940}
+  mainMenu: {fileID: 0}
   otherColor: {fileID: 2100000, guid: 1c0ebe43d6711794281663d7a938ad22, type: 2}
   dropdown: {fileID: 0}
 --- !u!23 &446209122
@@ -865,6 +866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   replay: {fileID: 780475938}
   finalScore: {fileID: 1446583596}
+  value: {fileID: 11400000, guid: f4cab2e5acf5b7d4da4570dc4fc266d2, type: 2}
 --- !u!114 &1798975080
 MonoBehaviour:
   m_ObjectHideFlags: 0

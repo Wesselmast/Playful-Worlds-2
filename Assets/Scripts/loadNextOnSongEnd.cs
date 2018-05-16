@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class loadNextOnSongEnd : MonoBehaviour {
     public GameObject canvas;
     public AudioSource theMusic;
+    public valueKeeper value;
 
     private void Start()
     {
@@ -13,7 +14,7 @@ public class loadNextOnSongEnd : MonoBehaviour {
     }
 
     void Update() { 
-        if (!theMusic.isPlaying && !PauseGame.isPaused) 
+        if (!theMusic.isPlaying && !value.isPaused) 
         {
             theMusic.Stop();
             StartCoroutine(FadeOut());

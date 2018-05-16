@@ -20,11 +20,12 @@ public class playerController : MonoBehaviour
     GameObject[] cubes;
     public Material black;
     public Material otherColor;
+    public valueKeeper value;
 
     private void Start()
     {
         rigidB = GetComponent<Rigidbody>();
-        otherColor.SetColor("_EmissionColor", button.dropColor);
+        otherColor.SetColor("_EmissionColor", value.dropColor);
     }
 
     void Update()
@@ -34,7 +35,7 @@ public class playerController : MonoBehaviour
         //-1 of 1 in range True  = 1, False - 0 (Thanks Jesse!)
         int dir = 2 * Convert.ToInt16(rightSideUp) - 1;
         //player beweegd op de amplitude van de muziek
-        speedHighest = AudioVis.amplitude * 50;
+        speedHighest = value.amplitude * 50;
         rigidB.velocity = new Vector3(speedHighest, 0, 0);
         rigidB.velocity = Vector3.ProjectOnPlane(rigidB.velocity, transform.up);
         rigidB.velocity += Vector3.ProjectOnPlane(Vector3.up * yVel, transform.right);
