@@ -5,12 +5,14 @@ public class AudioVis : MonoBehaviour {
     float[] samples = new float[512];
     float[] freqBand; 
     float[] bandBuffer;
-    public valueKeeper value;
     float[] bufferDecrease;
     float[] freqBandHighest;
 
-	void Start () {
+    void Awake()
+    {
         audioSource = GetComponent<AudioSource>();
+        audioSource.clip = valueKeeper.instance.audioClip;
+        audioSource.Play();
         freqBand = new float[8];
         bandBuffer = new float[8];
         bufferDecrease = new float[8];
@@ -33,8 +35,8 @@ public class AudioVis : MonoBehaviour {
             {
                 freqBandHighest[i] = freqBand[i];
             }
-            value.audioBand[i] = (freqBand[i] / freqBandHighest[i]);
-            value.audioBandBuffer[i] = (bandBuffer[i] / freqBandHighest[i]);
+            valueKeeper.instance.audioBand[i] = (freqBand[i] / freqBandHighest[i]);
+            valueKeeper.instance.audioBandBuffer[i] = (bandBuffer[i] / freqBandHighest[i]);
         }
     }
 
@@ -44,15 +46,15 @@ public class AudioVis : MonoBehaviour {
         float currentAmpBuffer = 0f;
         for (int i = 0; i < 8; i++)
         {
-            currentAmp += value.audioBand[i];
-            currentAmpBuffer += value.audioBandBuffer[i];
+            currentAmp += valueKeeper.instance.audioBand[i];
+            currentAmpBuffer += valueKeeper.instance.audioBandBuffer[i];
         }
-        if (currentAmp > value.amplitudeHighest)
+        if (currentAmp > valueKeeper.instance.amplitudeHighest)
         {
-            value.amplitudeHighest = currentAmp;
+            valueKeeper.instance.amplitudeHighest = currentAmp;
         }
-        value.amplitude = currentAmp / value.amplitudeHighest;
-        value.amplitudeBuffer = currentAmpBuffer / value.amplitudeHighest;
+        valueKeeper.instance.amplitude = currentAmp / valueKeeper.instance.amplitudeHighest;
+        valueKeeper.instance.amplitudeBuffer = currentAmpBuffer / valueKeeper.instance.amplitudeHighest;
     }
 
     void GetSpectrumAudioSource()
@@ -80,7 +82,6 @@ public class AudioVis : MonoBehaviour {
     void MakeFreqBands()
     {
         int count = 0;
-
         for (int i = 0; i < 8; i++)
         {
             int sampleCount = (int)Mathf.Pow(2, i) * 2;
@@ -97,5 +98,6 @@ public class AudioVis : MonoBehaviour {
             freqBand[i] = average * 10;
         }
     }
+
 
 }

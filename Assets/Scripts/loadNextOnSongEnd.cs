@@ -3,23 +3,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class loadNextOnSongEnd : MonoBehaviour {
-    public GameObject canvas;
     public AudioSource theMusic;
-    public valueKeeper value;
 
-    private void Start()
+    void Update()
     {
-        DontDestroyOnLoad(canvas.gameObject);
-        DontDestroyOnLoad(theMusic.gameObject);
-    }
-
-    void Update() { 
-        if (!theMusic.isPlaying && !value.isPaused) 
+        if (!theMusic.isPlaying && !valueKeeper.instance.isPaused)
         {
             theMusic.Stop();
             StartCoroutine(FadeOut());
+
         }
-	}
+    }
 
     IEnumerator FadeOut()
     {

@@ -6,14 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/scenes/mainMenu.unity
+    path: Assets/Scenes/mainMenu.unity
     guid: e3e407551f9d8624e8af98b86cf81c71
   - enabled: 1
-    path: Assets/scenes/game.unity
+    path: Assets/Scenes/songChooser.unity
+    guid: a0a42417c29050140ae056868b4cb646
+  - enabled: 1
+    path: Assets/Scenes/game.unity
     guid: cb946b3f7aebd7548b4c4c4ecd41bfa2
   - enabled: 1
-    path: Assets/scenes/scoreScene.unity
+    path: Assets/Scenes/scoreScene.unity
     guid: 7ea781946e7a45a49872b86c38f68178
   - enabled: 1
-    path: Assets/scenes/tutorial.unity
+    path: Assets/Scenes/tutorial.unity
     guid: 5779df6502bd4fe48908fc508e645b8d

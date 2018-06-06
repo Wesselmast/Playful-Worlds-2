@@ -3,17 +3,15 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour {
-    public AudioSource theMusic;
     public GameObject player;
     playerController script;
     public GameObject pause;
-    public valueKeeper value;
+    public AudioSource theMusic;
 
     void Start()
     {
         script = player.GetComponent<playerController>();
         pause.SetActive(false);
-
     }
 
     void Update()
@@ -22,11 +20,11 @@ public class PauseGame : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (!value.isPaused)
+                if (!valueKeeper.instance.isPaused)
                 {
                     Time.timeScale = 0;
                     theMusic.Pause();
-                    value.isPaused = true;
+                    valueKeeper.instance.isPaused = true;
                     pause.SetActive(true);
                     script.enabled = false;
                 }
@@ -34,7 +32,7 @@ public class PauseGame : MonoBehaviour {
                 {
                     Time.timeScale = 1;
                     theMusic.UnPause();
-                    value.isPaused = false;
+                    valueKeeper.instance.isPaused = false;
                     pause.SetActive(false);
                     script.enabled = true;
                 }
@@ -42,6 +40,6 @@ public class PauseGame : MonoBehaviour {
             }
         }
         else
-            value.isPaused = false;
+            valueKeeper.instance.isPaused = false;
     }
 }
