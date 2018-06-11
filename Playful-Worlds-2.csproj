@@ -295,7 +295,6 @@
     <Compile Include="Assets\Scripts\endlessness.cs" />
     <Compile Include="Assets\Scripts\fileChooser.cs" />
     <Compile Include="Assets\Scripts\getFromLoad.cs" />
-    <Compile Include="Assets\Scripts\loadNextOnSongEnd.cs" />
     <Compile Include="Assets\Scripts\paramCube.cs" />
     <Compile Include="Assets\Scripts\PauseGame.cs" />
     <Compile Include="Assets\Scripts\pickup.cs" />

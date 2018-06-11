@@ -10,7 +10,6 @@ public class playerController : MonoBehaviour
     bool isJumping = false;
     Rigidbody rigidB;
     float yVel;
-    public static bool rightSideUp = true;
     public GameObject floor;
     public GameObject backdrop;
     public GameObject player;
@@ -26,20 +25,13 @@ public class playerController : MonoBehaviour
         rigidB = GetComponent<Rigidbody>();
         otherColor.SetColor("_EmissionColor", valueKeeper.instance.dropColor);
     }
-
-    void Update()
+    private void Update()
     {
         pickups = GameObject.FindGameObjectsWithTag("pickup");
         cubes = GameObject.FindGameObjectsWithTag("cube");
 
         //-1 of 1 in range True  = 1, False - 0 (Thanks Jesse!)
-        int dir = 2 * Convert.ToInt16(rightSideUp) - 1;
-
-        //player beweegd op de amplitude van de muziek
-        speedHighest = valueKeeper.instance.amplitude * 50;
-        rigidB.velocity = new Vector3(speedHighest, 0, 0);
-        rigidB.velocity = Vector3.ProjectOnPlane(rigidB.velocity, transform.up);
-        rigidB.velocity += Vector3.ProjectOnPlane(Vector3.up * yVel, transform.right);
+        int dir = 2 * Convert.ToInt16(valueKeeper.instance.rightSideUp) - 1;
 
         if (Input.GetKey(KeyCode.Space) && !isJumping)
         {
@@ -52,13 +44,13 @@ public class playerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && !isJumping)
             Flip();
 
-        if (rightSideUp)
+        if (valueKeeper.instance.rightSideUp)
         {
             floor.GetComponent<MeshRenderer>().material = black;
             backdrop.GetComponent<MeshRenderer>().material = black;
             player.GetComponent<MeshRenderer>().material = black;
             score.GetComponent<Text>().color = otherColor.GetColor("_EmissionColor");
-            if(unhit != null)
+            if (unhit != null)
                 unhit.GetComponent<Text>().color = otherColor.GetColor("_EmissionColor");
             foreach (GameObject cube in cubes)
             {
@@ -66,11 +58,11 @@ public class playerController : MonoBehaviour
             }
             foreach (GameObject pickup in pickups)
             {
-                if(pickup != null)
+                if (pickup != null)
                     pickup.GetComponent<MeshRenderer>().material = black;
             }
         }
-        if (!rightSideUp)
+        if (!valueKeeper.instance.rightSideUp)
         {
             floor.GetComponent<MeshRenderer>().material = otherColor;
             backdrop.GetComponent<MeshRenderer>().material = otherColor;
@@ -89,12 +81,24 @@ public class playerController : MonoBehaviour
             }
         }
     }
+    void FixedUpdate()
+    {
+
+
+        //player beweegd op de amplitude van de muziek
+        speedHighest = valueKeeper.instance.amplitude * 50;
+        rigidB.velocity = new Vector3(speedHighest, 0, 0);
+        rigidB.velocity = Vector3.ProjectOnPlane(rigidB.velocity, transform.up);
+        rigidB.velocity += Vector3.ProjectOnPlane(Vector3.up * yVel, transform.right);
+
+
+    }
 
     void Flip()
     {
         Vector3 pos = transform.localPosition;
         transform.localPosition = new Vector3(pos.x, pos.y * -1 );
-        rightSideUp = !rightSideUp;
+        valueKeeper.instance.rightSideUp = !valueKeeper.instance.rightSideUp;
     }
 
     private void OnCollisionEnter(Collision col)

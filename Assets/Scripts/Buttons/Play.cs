@@ -17,15 +17,6 @@ public class Play : MonoBehaviour {
 
     private void PlayNow()
     {
-        StartCoroutine(ToPlay());
-    }
-
-    IEnumerator ToPlay()
-    {
-        float fadeTime = GetComponent<screenFader>().BeginFade(1);
-        yield return new WaitForSeconds(fadeTime);
-        Destroy(GameObject.Find("Canvas"));
-        Destroy(GameObject.Find("TheMusic"));
         SceneManager.LoadScene("game");
     }
 }

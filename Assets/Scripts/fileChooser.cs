@@ -4,16 +4,18 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class fileChooser : MonoBehaviour {
+public class fileChooser : MonoBehaviour
+{
 
     public GameObject buttonPrefab;
     public GameObject canvas;
-    int position = 250;
+    int position = -100;
 
     string path;
     public List<AudioClip> audioList = new List<AudioClip>();
 
-    void Start () {
+    void Start()
+    {
         path = Application.dataPath + "\\AudioFolder\\";
         if (Application.platform == RuntimePlatform.WindowsPlayer)
         {
@@ -32,20 +34,20 @@ public class fileChooser : MonoBehaviour {
         var fileInfo = info.GetFiles("*.wav");
         foreach (FileInfo file in fileInfo)
         {
-            
+
             Debug.Log(file.FullName);
             WWW www = new WWW(file.FullName);
-            yield return null;
-
-            
             yield return www;
-            //if (string.IsNullOrEmpty(www.error) == false) { Debug.Log("Went wrong " + www.error); yield break; }
-            AudioClip audioClip = www.GetAudioClip(false, false, AudioType.WAV);
+
+            AudioClip audioClip = www.GetAudioClip(false, true, AudioType.WAV);
+
             audioClip.name = file.Name;
             audioList.Add(audioClip);
-        }
 
-        //PlayAudio();
+            //stop met laden als er meer dan 10 wav files zijn
+            if (audioList.Count >= 10)
+                break;
+        }
         Debug.Log("Stopped Reading files");
         SpawnButtons();
 
@@ -62,15 +64,16 @@ public class fileChooser : MonoBehaviour {
 
     void SpawnButtons()
     {
-        foreach(AudioClip clip in audioList)
+        foreach (AudioClip clip in audioList)
         {
             GameObject button = Instantiate(buttonPrefab);
             button.transform.SetParent(canvas.transform);
             button.transform.localPosition = new Vector3(0, position, 0);
+            button.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
 
             Text buttonText = button.GetComponentInChildren<Text>();
             buttonText.text = clip.name;
-            position += 40;
+            position += 20;
 
             Button theButton = button.GetComponent<Button>();
             theButton.onClick.AddListener(delegate { OnClickButton(clip); });

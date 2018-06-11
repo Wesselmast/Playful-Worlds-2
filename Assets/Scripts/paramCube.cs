@@ -12,13 +12,13 @@ public class paramCube : MonoBehaviour
     {
         for (int i = 0; i < 8; i++)
         {
-            GameObject instanceCube = Instantiate(sampleCubePrefab);
-            instanceCube.transform.position = new Vector3(transform.position.x + i, transform.position.y, transform.position.z);
-            instanceCube.transform.parent = this.transform;
+            GameObject instanceCube = Instantiate(sampleCubePrefab, this.transform);
+            instanceCube.transform.localPosition = new Vector3(i, 0, 0);
             instanceCube.name = "SampleCube " + i;
             sampleCube[i] = instanceCube;
         }
     }
+
 
     void Update()
     {
@@ -31,7 +31,7 @@ public class paramCube : MonoBehaviour
                     {
                         if (useBuffer)
                         {
-                            sampleCube[i].transform.localScale = new Vector3(transform.localScale.x, (valueKeeper.instance.audioBandBuffer[i] * scaleMulti) + startScale, transform.localScale.z);
+                            sampleCube[i].transform.localScale = new Vector3(1, (valueKeeper.instance.audioBandBuffer[i] * scaleMulti) + startScale, 1);
                         }
                     //testing purposes voor geen buffer
                     if (!useBuffer)

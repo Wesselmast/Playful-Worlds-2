@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour {
@@ -11,7 +10,7 @@ public class PauseGame : MonoBehaviour {
     void Start()
     {
         script = player.GetComponent<playerController>();
-        pause.SetActive(false);
+        Time.timeScale = 1;
     }
 
     void Update()
@@ -41,5 +40,6 @@ public class PauseGame : MonoBehaviour {
         }
         else
             valueKeeper.instance.isPaused = false;
+      
     }
 }

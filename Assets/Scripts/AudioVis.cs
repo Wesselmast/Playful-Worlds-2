@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
-public class AudioVis : MonoBehaviour {
+public class AudioVis : MonoBehaviour
+{
     AudioSource audioSource;
     float[] samples = new float[512];
-    float[] freqBand; 
+    float[] freqBand;
     float[] bandBuffer;
     float[] bufferDecrease;
     float[] freqBandHighest;
@@ -11,20 +14,49 @@ public class AudioVis : MonoBehaviour {
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = valueKeeper.instance.audioClip;
-        audioSource.Play();
         freqBand = new float[8];
         bandBuffer = new float[8];
         bufferDecrease = new float[8];
         freqBandHighest = new float[8];
     }
-    
-	void Update () {
+
+    void Start()
+    {
+        StartCoroutine(playClip());
+    }
+
+    void Update()
+    {
         GetSpectrumAudioSource();
         MakeFreqBands();
         BandBuffer();
         CreateAudioBands();
         GetAmplitude();
+    }
+
+    IEnumerator playClip()
+    {
+        audioSource.clip = valueKeeper.instance.audioClip;      
+        float clipLength = audioSource.clip.length;
+        audioSource.Play();
+        float t = 0;
+        while (t < clipLength + 0.01f)
+        {
+            while (valueKeeper.instance.isPaused)
+            {
+                yield return null;
+            }
+            yield return null;
+            t += Time.deltaTime;
+        }
+        StartCoroutine(FadeOut());
+    }
+
+    IEnumerator FadeOut()
+    {
+        float fadeTime = GetComponent<screenFader>().BeginFade(1);
+        yield return new WaitForSeconds(fadeTime);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     void CreateAudioBands()
@@ -89,7 +121,7 @@ public class AudioVis : MonoBehaviour {
 
             for (int j = 0; j < sampleCount; j++)
             {
-                average += samples[count] * (count + 1); 
+                average += samples[count] * (count + 1);
                 count++;
             }
 

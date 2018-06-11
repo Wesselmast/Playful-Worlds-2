@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class screenFader : MonoBehaviour {
+public class screenFader : MonoBehaviour
+{
 
     public Texture2D fadeOutTexture;
     public float fadeSpeed = 0.8f;

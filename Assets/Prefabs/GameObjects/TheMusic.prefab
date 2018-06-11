@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4398037429980936}
   - component: {fileID: 114556529175333138}
   - component: {fileID: 82997778677359400}
+  - component: {fileID: 114614781680674496}
   m_Layer: 0
   m_Name: TheMusic
   m_TagString: Untagged
@@ -132,3 +133,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388c1864d963d6f44af48c689f86810a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114614781680674496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1623865786508090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5015aa4e56ec02240a5bb463bedaa34b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOutTexture: {fileID: 2800000, guid: 5ea908d314bd5604f88950cb60fb5d02, type: 3}
+  fadeSpeed: 0.8
