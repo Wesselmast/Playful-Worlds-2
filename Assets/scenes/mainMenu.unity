@@ -662,7 +662,7 @@ MonoBehaviour:
   - 0
   - 0
   amplitude: 0
-  audioClip: {fileID: 8300000, guid: 45bb284a572fe0748a3eb648e375fe24, type: 3}
+  audioClip: {fileID: 8300000, guid: b84e0ff0ed242414fa9083961d933a57, type: 3}
   difficulty: 0
   amplitudeBuffer: 0
   amplitudeHighest: 0

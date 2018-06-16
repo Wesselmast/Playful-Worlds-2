@@ -83,8 +83,6 @@ public class playerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-
-
         //player beweegd op de amplitude van de muziek
         speedHighest = valueKeeper.instance.amplitude * 50;
         rigidB.velocity = new Vector3(speedHighest, 0, 0);

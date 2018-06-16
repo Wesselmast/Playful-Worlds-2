@@ -69,7 +69,7 @@ public class fileChooser : MonoBehaviour
             GameObject button = Instantiate(buttonPrefab);
             button.transform.SetParent(canvas.transform);
             button.transform.localPosition = new Vector3(0, position, 0);
-            button.transform.localScale = new Vector3(0.5f,0.5f,0.5f);
+            button.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 
             Text buttonText = button.GetComponentInChildren<Text>();
             buttonText.text = clip.name;

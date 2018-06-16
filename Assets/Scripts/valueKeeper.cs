@@ -71,6 +71,6 @@ public class valueKeeper : MonoBehaviour
         amplitudeHighest = 0;
         isPaused = false;
         rightSideUp = true;
-    } 
+    }
 
 }

@@ -36,7 +36,7 @@ public class AudioVis : MonoBehaviour
 
     IEnumerator playClip()
     {
-        audioSource.clip = valueKeeper.instance.audioClip;      
+        audioSource.clip = valueKeeper.instance.audioClip;
         float clipLength = audioSource.clip.length;
         audioSource.Play();
         float t = 0;
