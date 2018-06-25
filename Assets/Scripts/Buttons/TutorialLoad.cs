@@ -12,6 +12,7 @@ public class TutorialLoad : MonoBehaviour {
 
     void Tut()
     {
+        Time.timeScale = 1;
         valueKeeper.instance.seenTut = true;
         SceneManager.LoadScene("tutorial");
     }

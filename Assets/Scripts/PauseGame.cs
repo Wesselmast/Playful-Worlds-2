@@ -39,7 +39,9 @@ public class PauseGame : MonoBehaviour {
             }
         }
         else
+        {
             valueKeeper.instance.isPaused = false;
+        }
       
     }
 }

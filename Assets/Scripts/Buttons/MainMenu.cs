@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
 
     void Replay()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("mainMenu");
         valueKeeper.instance.ResetStuff();
 
