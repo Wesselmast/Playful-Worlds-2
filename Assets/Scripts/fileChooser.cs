@@ -44,7 +44,7 @@ public class fileChooser : MonoBehaviour
             audioClip.name = file.Name;
             audioList.Add(audioClip);
 
-            //stop met laden als er meer dan 10 wav files zijn
+            //stop met laden als er meer dan 10 wav files zijnq
             if (audioList.Count >= 10)
                 break;
         }
@@ -85,7 +85,5 @@ public class fileChooser : MonoBehaviour
         valueKeeper.instance.audioClip = clip;
         UnityEngine.SceneManagement.SceneManager.LoadScene("mainMenu");
         valueKeeper.instance.ResetStuff();
-
     }
-
 }
